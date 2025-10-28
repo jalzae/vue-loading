@@ -1,57 +1,67 @@
-import { ref as _, defineComponent as g, createBlock as f, openBlock as a, Transition as m, withCtx as v, createElementBlock as d, createCommentVNode as p, unref as y, createElementVNode as i, Fragment as L, renderList as w, normalizeStyle as r, createVNode as b, render as k } from "vue";
-const s = _(!1);
-function c(e = !0) {
-  s.value = e;
+import { ref as L, defineComponent as p, createBlock as w, openBlock as a, Transition as y, withCtx as C, createElementBlock as u, createCommentVNode as b, unref as g, normalizeStyle as r, createElementVNode as l, Fragment as k, renderList as V, createVNode as $, render as h } from "vue";
+const i = L(!1), d = L("#ad5160");
+function f(e = !0) {
+  i.value = e;
 }
-function u() {
-  s.value = !1;
+function _() {
+  i.value = !1;
 }
-const V = {
-  key: 0,
-  class: "vue-loading-overlay",
-  role: "status",
-  "aria-label": "Loading"
-}, h = { class: "vue-loading" }, x = /* @__PURE__ */ g({
+function v(e) {
+  d.value = e;
+}
+function m() {
+  return d.value;
+}
+const x = { class: "vue-loading" }, P = /* @__PURE__ */ p({
   __name: "VueLoading",
   setup(e) {
-    const n = s;
-    return (t, l) => (a(), f(m, { name: "fade" }, {
-      default: v(() => [
-        y(n) ? (a(), d("div", V, [
-          i("div", h, [
-            (a(), d(L, null, w(8, (o) => i("div", {
-              key: o,
+    const o = i, n = d;
+    return (s, c) => (a(), w(y, { name: "fade" }, {
+      default: C(() => [
+        g(o) ? (a(), u("div", {
+          key: 0,
+          class: "vue-loading-overlay",
+          role: "status",
+          "aria-label": "Loading",
+          style: r({ "--loader-color": g(n) })
+        }, [
+          l("div", x, [
+            (a(), u(k, null, V(8, (t) => l("div", {
+              key: t,
               class: "vue-loading__line",
-              style: r({ transform: `rotate(${(o - 1) * 45}deg)` })
+              style: r({ transform: `rotate(${(t - 1) * 45}deg)` })
             }, [
-              i("div", {
+              l("div", {
                 class: "vue-loading__dot",
-                style: r({ animationDelay: `${(o - 1) * 0.1}s` })
+                style: r({ animationDelay: `${(t - 1) * 0.1}s` })
               }, null, 4)
             ], 4)), 64))
           ])
-        ])) : p("", !0)
+        ], 4)) : b("", !0)
       ]),
       _: 1
     }));
   }
-}), C = (e, n) => {
-  const t = e.__vccOpts || e;
-  for (const [l, o] of n)
-    t[l] = o;
-  return t;
-}, $ = /* @__PURE__ */ C(x, [["__scopeId", "data-v-26624c27"]]), E = {
+}), B = (e, o) => {
+  const n = e.__vccOpts || e;
+  for (const [s, c] of o)
+    n[s] = c;
+  return n;
+}, E = /* @__PURE__ */ B(P, [["__scopeId", "data-v-0a81495d"]]), z = {
   install(e) {
-    const n = document.createElement("div");
-    document.body.appendChild(n);
-    const t = b($);
-    k(t, n), e.config.globalProperties.$setLoading = c, e.config.globalProperties.$unsetLoading = u, typeof window < "u" && (window.setLoading = c, window.unsetLoading = u);
+    const o = document.createElement("div");
+    document.body.appendChild(o);
+    const n = $(E);
+    h(n, o), e.config.globalProperties.$setLoading = f, e.config.globalProperties.$unsetLoading = _, e.config.globalProperties.$setLoaderColor = v, e.config.globalProperties.$getLoaderColor = m, typeof window < "u" && (window.setLoading = f, window.unsetLoading = _, window.setLoaderColor = v, window.getLoaderColor = m);
   }
 };
 export {
-  $ as VueLoading,
-  E as default,
-  s as loadingVisible,
-  c as setLoading,
-  u as unsetLoading
+  E as VueLoading,
+  z as default,
+  m as getLoaderColor,
+  d as loaderColor,
+  i as loadingVisible,
+  v as setLoaderColor,
+  f as setLoading,
+  _ as unsetLoading
 };

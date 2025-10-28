@@ -1,6 +1,12 @@
 <template>
   <transition name="fade">
-    <div v-if="visible" class="vue-loading-overlay" role="status" aria-label="Loading">
+    <div
+      v-if="visible"
+      class="vue-loading-overlay"
+      role="status"
+      aria-label="Loading"
+      :style="{ '--loader-color': color }"
+    >
       <div class="vue-loading">
         <div
           v-for="i in 8"
@@ -19,9 +25,10 @@
 </template>
 
 <script lang="ts" setup>
-import { loadingVisible } from './loadingState'
+import { loadingVisible, loaderColor } from './loadingState'
 
 const visible = loadingVisible
+const color = loaderColor
 </script>
 
 <style scoped>
@@ -55,7 +62,7 @@ const visible = loadingVisible
   left: 50%;
   width: 17%;
   height: 17%;
-  background-color: #ad5160;
+  background-color: var(--loader-color, #ad5160);
   border-radius: 50%;
   transform: translateX(-50%);
   animation: vue-loading-fade 2s linear infinite;
